@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const userRoutes = require("./routes/user.routes");
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + "/build"));
 app.use(express.json());
