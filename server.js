@@ -6,14 +6,14 @@ const userRoutes = require("./routes/user.routes");
 const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + "/build"));
-app.use(express.json());
-app.use(
-  session({
-    secret: process.env.SECRET_KEY,
-    resave: true,
-    saveUninitialized: false,
-  })
-);
+// app.use(express.json());
+// app.use(
+//   session({
+//     secret: process.env.SECRET_KEY,
+//     resave: true,
+//     saveUninitialized: false,
+//   })
+// );
 app.use(bodyParser.urlencoded({ extended: false }));
 // app.use("/gifs", gifRoutes);
 app.use("/users", userRoutes);
