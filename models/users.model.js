@@ -19,7 +19,7 @@ async function signUp(res, username, password) {
       throw "Username is already taken";
     }
     const encrypted = await bcrypt.hash(password, 8);
-    await pool.query("INSERT INTO users (username, password) VALUES (?, ?)", [
+    await pool.query("INSERT INTO users (username, password) VALUES (?,?)", [
       username,
       encrypted,
     ]);
