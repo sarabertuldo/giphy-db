@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const userRoutes = require("./routes/user.routes");
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + "/build"));
 app.use(express.json());
@@ -14,10 +14,11 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // app.use("/gifs", gifRoutes);
 app.use("/users", userRoutes);
 
+app.get("/", (req, res) => res.send("This is a server apparently"));
 app.get("*", (req, res) => {
   res.sendFile("/build/index.html", { root: __dirname + "/" });
 });
